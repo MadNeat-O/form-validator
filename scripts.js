@@ -4,6 +4,7 @@ const username = document.getElementById('username')
 const email = document.getElementById('email')
 const password = document.getElementById('password')
 const password2 = document.getElementById('password2')
+const togglePassword = document.getElementById('togglePassword')
 
 // Functions
 const showError = (input, message) => {
@@ -58,6 +59,10 @@ const checkPasswordsMatch = (input1, input2) => {
   }
 }
 
+const toggleShowPassword = (input) => {
+
+}
+
 // Event Listeners
 form.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -74,4 +79,12 @@ form.addEventListener('submit', (e) => {
   checkLength(username, 3, 15);
   checkEmail(email);
   checkPasswordsMatch(password, password2)
+})
+
+togglePassword.addEventListener('click', (e) => {
+  // toggle the type attribute
+  const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+  password.setAttribute('type', type);
+  // toggle the eye slash icon
+  togglePassword.classList.toggle('fa-eye-slash');
 })
